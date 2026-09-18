@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific ignores
+dataset/*
+!dataset/.gitkeep
+models/*.pth
+models/*.ckpt
+models/checkpoints/
+results/*.png
+results/*.jpg
+!results/.gitkeep
+*.zip
