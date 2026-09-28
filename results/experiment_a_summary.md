@@ -26,3 +26,13 @@ Higher is better for PSNR and SSIM; lower is better for LPIPS.
   published benchmarks on full-resolution images; the relative trend is the finding.
 
 Per-image metrics: experiment_a_metrics.csv
+
+## Qualitative comparison
+Each row is one scene; columns show the ground truth, then the noisy input and the
+DDRM restoration for sigma = 15, 25 and 50 (PSNR against the ground truth in each title).
+
+![Experiment A qualitative comparison](figures/experiment_a_qualitative.png)
+
+Noisy-input PSNR is nearly identical across scenes at a given sigma (the noise is
+synthetic), while restored PSNR varies with scene content: flat, low-texture scenes are
+restored to a higher PSNR than heavily textured ones at the same noise level.
