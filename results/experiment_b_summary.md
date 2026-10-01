@@ -25,11 +25,13 @@ since DDRM's data loader shuffles image order internally.)
 
 ## Interpretation
 DDRM's pipeline treats its input as the "clean" signal and adds its own synthetic
-Gaussian noise (sigma_0) before restoring, so the reconstruction target is the input
-image itself, not the true sensor-noise-free ground truth. The two evaluations above
-show this directly: performance against DDRM's own target is strong, while performance
-against the true clean ground truth is lower, reflecting the real camera sensor noise
-that remains in the output.
+Gaussian noise (sigma_0) before restoring, so in principle its reconstruction target is
+the input image itself, not the true sensor-noise-free ground truth. In practice,
+however, the two evaluations above are nearly identical — PSNR differs by less than
+0.2 dB, and SSIM/LPIPS against the true ground truth are even slightly better. This
+shows that at sigma_0 = 0.1, DDRM's diffusion-based restoration generalizes well to
+real SIDD camera sensor noise and is not merely reconstructing the noisy input: it
+produces outputs close to the true clean scene.
 
 Per-image metrics: experiment_b_metrics.csv (vs reconstruction target),
 experiment_b_metrics_vs_true_gt.csv (vs true ground truth).
